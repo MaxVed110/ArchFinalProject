@@ -599,10 +599,10 @@ components:
         $ref: '#/components/schemas/User'
     Group:
       type: object
-      required: 
+      required:
         - id
         - user_id
-      properties: 
+      properties:
         id:
           type: integer
           example: 7895262
@@ -611,26 +611,47 @@ components:
           example: 8999999
     Groups:
       description: Список групп
-      content:
-        applications/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Group'   
+      type: array
+      items:
+        $ref: '#/components/schemas/Group'
     Shedule:
       description: Данные расписания
-      content:
-        applications/json:
-          schema:
-              $ref: '#/components/schemas/Shedule'   
+      type: object
+      required:
+        - id
+        - day
+        - time
+        - mode
+        - robotCI_id
+        - us_group_id
+        - areas_ci
+      properties:
+        id:
+          type: integer
+          example: 7895262
+        day:
+          type: integer
+          example: 210101
+        time:
+          type: integer
+          example: 1200
+        mode:
+          type: integer
+          example: 5
+        robotCI_id:
+          type: integer
+          example: 1111111
+        us_group_id:
+          type: integer
+          example: 2222222
+        areas_ci:
+          type: integer
+          example: 3333333
     Shedules:
       description: Список расписаний
-      content:
-        applications/json:
-          schema:
-            type: array
-            items:
-              $ref: '#/components/schemas/Shedule'          
+      type: array
+      items:
+        $ref: '#/components/schemas/Shedule'      
     Error404:
       type: object
       required: 
